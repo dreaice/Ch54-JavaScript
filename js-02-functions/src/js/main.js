@@ -45,7 +45,12 @@ o funciones se eleven al comienzo de su ámbito antes de que se ejecute el códi
 
 */
 
+saludar("Jen");
 
+
+function saludar(nombre){
+  console.log("Que te gustaría de regalo de cumpleaños + nombre");
+}
 
 
 
@@ -64,8 +69,32 @@ sintaxis:
 */
 
 
+const darRegalo = function (nombre, regalo){
+  console.log(`Felicidades ${nombre}, te traje ${regalo}`);
+};
+
+darRegalo("Jen", "Sopa Maruchan con camarón");
+
+/* 
+Realizar una funcion declarada que sume dos números y retorne el resultado
+
+Realizar una funcion expresada que reste dos números y retorne el resultado
+*/
+
+function sumNum(num1, num2){
+  return num1 + num2;
+}
+const resultadoSuma = sumNum(5,3);
+console.log(`El resultado de la Suma es: ${resultadoSuma}`);
 
 
+
+const restaNum = function(num1, num2){
+  return num1 - num2;
+}
+
+const resultadoResta = restaNum(10, 4);
+console.log(`El resultado de la resta es: ${resultadoResta}`);
 
 /*
  ------------ Funciones autoinvocadas -----------------------

@@ -42,8 +42,74 @@
 
 */
 
+/* 
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18, la función debe
+ retornar el mensaje "Eres mayor de edad".
+ En caso contrario, retornar el mensaje "Eres menor de edad".
+ - Realizar la versión de if-else sin usar el bloque de código {}
+*/
 
+const verificarEdad = edad => {
+    if (edad >= 18) return "Eres mayor de edad";
+    else return "Eres menor de edad";
+}
+const resultado1 = verificarEdad(19);
+console.log(resultado1);
 
+/*
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18 y menos o igual a 30,
+ la función debe retornar el mensaje "Tu luchador era Místico".
+
+ Si eres mayor o igual a 31, el mensaje "Tu luchador es el Blue Demon"
+
+ Si es menor a 18 el mensaje "Tu luchador es Penta"
+
+*/
+
+const verificarEdad2 = edad => {
+    if (edad >= 18 && edad <= 30) return "Tu luchador es Místico";
+    else if (edad >= 31) return "Tu luchador es el Blue Demon";
+    else return "Tu luchador es Penta";
+}
+console.log(verificarEdad2(33));  // Imprime: Tu luchador es el Blue Demon
+
+// Bloque de código
+{
+let myVarLet = 30;
+const myVarConst = 40;
+var myVarVar = 50;
+console.log(myVarLet, myVarConst, myVarVar); // 30, 40, 50
+    {
+    let myVarLet = 100;
+    const myVarConst = 110;
+    var myVarVar = 120;
+    console.log(myVarLet, myVarConst, myVarVar); // 100, 110, 120
+    }
+    console.log(myVarLet, myVarConst, myVarVar); // 30, 40, 120
+}
+
+// Ejercicios Mentales: 
+let active = false;
+if( active === true); {
+    console.log("Esta activo");
+}
+console.log("Fin del Programa");
+
+// --------------------------
+active = false;
+if( active === true )
+    console.log("Está Activo");
+    console.log("Tiene Autorización");
+
+console.log("Fin del Programa")
+
+// -------------------------- Ejercicio 3
+active = false;
+if( active ); console.log("Está activo");
+// else console.log("No está activo"); // Unexpected token 'else'
+// console.log("Fin del Programa");
 
 //--------------- Condicional Switch --------------------------
 /*
@@ -73,7 +139,30 @@
 
 */
 
+const evaluarNombre = ( nombre ) => {
+    let resultado;
+    switch ( nombre ){
+        case "Lua":
+            resultado = "Es de Abril"
+        case "T'Challa": case "Smooky":
+            resultado = "Es de Naty"; 
+            break;
+        case "Shuri":
+            resultado = "Es de Yorch";
+            break
+        case "Eros":
+            resultado = "Es de Chagua";
+            break
+        default:
+            resultado = "No se sabe de quien es.";
+    }
+    return resultado;
+}
+console.log(evaluarNombre("T'Challa") ); // Es de Naty
+console.log(evaluarNombre("Shuri") ); // Es de Yorch
+console.log(evaluarNombre("Eros") ); // Es de Chagua
 
+const nombreMascota = "T'Challa";
 
 
 /**

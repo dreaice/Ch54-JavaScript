@@ -142,19 +142,14 @@ if( active ); console.log("Está activo");
 const evaluarNombre = ( nombre ) => {
     let resultado;
     switch ( nombre ){
-        case "Lua":
-            resultado = "Es de Abril"
-        case "T'Challa": case "Smooky":
-            resultado = "Es de Naty"; 
+        case "Lua": resultado = "Es de Abril"
+        case "T'Challa": case "Smooky": resultado = "Es de Naty"; 
             break;
-        case "Shuri":
-            resultado = "Es de Yorch";
+        case "Shuri": resultado = "Es de Yorch";
             break
-        case "Eros":
-            resultado = "Es de Chagua";
+        case "Eros": resultado = "Es de Chagua";
             break
-        default:
-            resultado = "No se sabe de quien es.";
+        default: resultado = "No se sabe de quien es.";
     }
     return resultado;
 }
@@ -177,6 +172,53 @@ const nombreMascota = "T'Challa";
  * @returns {string} mensaje
  */
 
+// Version if else:
+/**
+ * Función que recibe la velocidad de un ventilador y devuelve un mensaje correspondiente.
+ * @param {number} velocidad
+ * @returns {string} mensaje
+ */
+const velocidadVentilador1 = velocidad => {
+    if (velocidad === 0) return "Apagado";
+    else if (velocidad === 1) return "Baja";
+    else if (velocidad === 2) return "Media";
+    else if (velocidad === 3) return "Alta";
+    else return "Velocidad desconocida";
+}
+
+// Ejemplo de uso:
+console.log(velocidadVentilador1(2)); // Imprime: Media
+console.log(velocidadVentilador1(5)); // Imprime: Velocidad desconocida
+
+// Versión Swithc: 
+const velocidadVentilador2 = velocidad => {
+    let mensaje;
+
+    switch (velocidad) {
+        case 0:
+            mensaje = "Apagado";
+            break;
+        case 1:
+            mensaje = "Baja";
+            break;
+        case 2:
+            mensaje = "Media";
+            break;
+        case 3:
+            mensaje = "Alta";
+            break;
+        default:
+            mensaje = "Velocidad desconocida";
+            break;
+    }
+
+    return mensaje;
+};
+
+
+// Ejemplo de uso:
+console.log(velocidadVentilador2(1)); // Imprime: Baja
+console.log(velocidadVentilador2(4)); // Imprime: Velocidad desconocida
 
 
 

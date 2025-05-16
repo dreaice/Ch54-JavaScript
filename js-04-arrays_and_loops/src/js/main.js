@@ -51,10 +51,53 @@ for ( const color of colores ) {
  *  - Usar for of
  *  - De preferencia usar una función 
  */
-const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
+const cantantes2 = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+// Imprimir en consola cada uno de los cantantes, usando for-of
+// usar un arrow function.
+// La salida debe de ser com "Juan Gabriel" - "José José" - "Rocío Dúrcal" - "Ana Gabriel"
 
+const imprimirCantantes = ( listaCantantes ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of listaCantantes) {
+        // cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados += cantante + " - ";
+    }
+    return cantantesConcatenados;
+}
+console.log(imprimirCantantes(cantantes2) );
+
+// imprimirCantantes3(arrayCantantes) {
+//     console.log(arrayCantantes.join(" - "));
+// }
+// imprimirCantantes3(cantantes);
+
+/**
+ *  Del siguiente arreglo de cantantes, mostrar en el DOM, el listado como unorder list.
+ *  const cantantes = ["Joan Manuel Serrat", "Silvio Rodriguez", "Alberto Cortés", "Ana Belén", "Joaquín Sabina", "Victor Manuel"];
+ *  - Usar for of
+ *  - De preferencia usar una función 
+ *  <li>Joaquín Sabina</li> 
+ */
+const cantantesTrova = [
+    "Joan Manuel Serrat", 
+    "Silvio Rodriguez", 
+    "Alberto Cortés", 
+    "Ana Belén", 
+    "Joaquín Sabina", 
+    "Victor Manuel"];
+function cantantesEnLista(lista){
+    const ul = document.getElementById("cantantes-lista");
+
+    for (const cantante of lista ){
+        const li = document.createElement("li");
+        li.textContent = cantante;
+        ul.appendChild(li);
+    }
+}
+
+cantantesEnLista(cantantesTrova);
 
 // ------------------- Uso de break en ciclos ----------------------------
 // break detiene la ejecución de la iteración en curso y termina el ciclo.
@@ -118,5 +161,32 @@ for (let i = 0 ; i <= 5; i++ ){
     }
 
 */
+ /*
+Pregunta al usuario si quiere que se genere su número de la suerte
+Si la respuesta es "si", genera de forma aleatoria un número
+En caso contrario, despedirse. 
+ */
 
+// while( confirm ("Quieres tu número de la suerte?") ){
+//     const numeroSuerte = Math.random();
+//     console.log("Tu número de suerte es: " + numeroSuerte);
+// }
 
+/*
+Uso de Math.Randon();
+
+Generar 5 números aleatorios.
+Los números deben estar entre el 0.0 y el 10.0 (sin incluir el 10.0)
+*/
+
+const generarNumerosAleatorios = (cantidad) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random(); // 0.999...
+        const escalarNumero = numeroAleatorio * 10; // 9.999...
+        const numerosEnteros = Math.floor(escalarNumero); //
+        console.log("Número aleatorio: ", numerosEnteros); // 0.0...10.0
+    }
+    return numerosAleatorios;
+};
+generarNumerosAleatorios(5);

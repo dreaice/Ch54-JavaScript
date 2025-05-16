@@ -233,7 +233,28 @@ console.log(velocidadVentilador2(4)); // Imprime: Velocidad desconocida
 */
 
 
+const verificarPagoDeTarjeta = ( estaPagado ) => {
+    let msj;
+    if( estaPagado ){
+        msj = "La tarjeta ha sido pagada";
+    } else{
+        msj = "La tarjeta no ha sido pagada"
+    }
+    return msj;
+}
 
+console.log( verificarPagoDeTarjeta( true ) ); // La tarjeta ha sido pagada
+console.log( verificarPagoDeTarjeta( false ) ); // La tarjeta no ha sido pagada
+
+// Version con operador ternario
+
+
+const verificarPagoDeTarjetaUsandoTernario = ( estaPagado ) => 
+    estaPagado ? "La tarjeta a sido pagada" : "La tarjeta no ha sido pagada";
+
+
+console.log( verificarPagoDeTarjetaUsandoTernario( true ) ); // La tarjeta ha sido pagada
+console.log( verificarPagoDeTarjetaUsandoTernario( false ) ); // La tarjeta no ha sido pagada
 
 /**
  *  Función que reciba la edad de una persona y devuelva el mensaje:
@@ -243,8 +264,83 @@ console.log(velocidadVentilador2(4)); // Imprime: Velocidad desconocida
  *  @returns {string} mensaje
  */
 
+const edadDeLaPersona = (mayorDeEdad) =>
+    mayorDeEdad ? "Eres mayor de edad" : "Eres menor de edad";
+
+console.log(edadDeLaPersona(18) );
+console.log(edadDeLaPersona(16) );
+console.log(edadDeLaPersona(33) );
+
+/*
+Dado un número entero, imprimir:
+
+"Negativo" : si el número es menor a 0
+"Cero": si el número es 0
+"Positivo": si el número es mayor a 0 pero menor a 100
+"Grande": si el número es mayor o igual a 100
+
+Realizar una funcion que reciba el número y retorne el mensaje
+El retorno debe ser impreso en la consola.
+Realizar una version con if-else, switch y operador ternario.
+*/
+
+// ----- Function If-Else ----------
+function evaluarElNumeroElse(numero){
+    if (numero < 0){
+    return "Negativo";
+    } else if (numero === 0){
+        return "Cero";
+    } else if (numero > 0 && numero < 100){
+        return "Positivo";
+    } else if(numero >= 100){
+        return "Grande";
+    }
+}
+
+console.log(evaluarElNumeroElse(-45) );
+console.log(evaluarElNumeroElse(0) );
+console.log(evaluarElNumeroElse(45) );
+console.log(evaluarElNumeroElse(100) );
+
+// ----- Function Switch ----------
+function evaluarElNumeroSwitch(numero) {
+
+    switch ( true ) {
+        case (numero < 0):
+            mensaje = "Negativo";
+            break;
+        case (numero === 0):
+            mensaje = "Cero";
+            break;
+        case (numero >0 && numero < 100):
+            mensaje = "Positivo";
+            break;
+        case (numero >= 100):
+            mensaje = "Grande";
+            break;
+        default:
+            mensaje = "Numero desconocido";
+    }
+    return mensaje;
+};
+
+console.log(evaluarElNumeroSwitch(-45) );
+console.log(evaluarElNumeroSwitch(0) );
+console.log(evaluarElNumeroSwitch(45) );
+console.log(evaluarElNumeroSwitch(100) );
+
+// ----- Function Ternario ----------
+const evaluarElNumeroTernario = (numero) => 
+    (numero < 0) ? "Negativo" 
+    : (numero === 0) ? "Cero" 
+    : (numero < 100) ? "Positivo" 
+    : "Grande"; 
 
 
+console.log(evaluarElNumeroTernario(-45) );
+console.log(evaluarElNumeroTernario(0) );
+console.log(evaluarElNumeroTernario(45) );
+console.log(evaluarElNumeroTernario(100) );
 
 // ------------------- Ejercicio Estaciones del año --------------------------
 /*

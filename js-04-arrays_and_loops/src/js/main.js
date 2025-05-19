@@ -183,10 +183,89 @@ const generarNumerosAleatorios = (cantidad) => {
    
     for (let i = 0; i < cantidad; i++) {
         const numeroAleatorio = Math.random(); // 0.999...
-        const escalarNumero = numeroAleatorio * 10; // 9.999...
-        const numerosEnteros = Math.floor(escalarNumero); //
-        console.log("Número aleatorio: ", numerosEnteros); // 0.0...10.0
+        const escalarNumero = numeroAleatorio * 10; // 0.0 ... 10.999...
+        // const numerosEnteros = Math.floor(escalarNumero); // 0 ... 10
+        console.log("Número aleatorio: "); // 0.0...10.0
     }
-    return numerosAleatorios;
+    
 };
 generarNumerosAleatorios(5);
+
+const generarNumerosAleatorios2 = (cantidad, minNum = 0, maxNum = 10) => {
+   
+    for (let i = 0; i <= cantidad; i++) {
+        const numeroAleatorio2 = Math.random(); // 0.999...
+        const escalarNumero2 = numeroAleatorio2 * (maxNum); // 0.0 ... 10.999...
+        const numerosEnteros2 = Math.floor(escalarNumero2); // 0 ... 10
+        console.log("Número aleatorio2: ", numerosEnteros2); // 0.0...10.0
+    }
+    
+};
+generarNumerosAleatorios2(5);
+
+const generarNumerosAleatorios3 = (cantidad, minNum = 50, maxNum = 60) => {
+   
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio3 = Math.random(); // 0.999...
+        const escalarNumero3 = numeroAleatorio3 * ((maxNum - minNum) + 1); // 0.0 ... 10.999...
+        const numerosEnteros3 = Math.floor(escalarNumero3 + minNum); // 0 ... 10
+        console.log(`Número aleatorio3 entre ${minNum} y ${maxNum}: `, numerosEnteros3); // 0.0...10.0
+    }
+    
+};
+generarNumerosAleatorios3(10, 50, 60);
+
+/*
+    Melate Chocolate
+    - Al pulsar el boton Generar mis números de la suerte
+    1. Generar 6 nunmeros entre el 1 y el 54. 
+    2. Mostrar el resultado en el DOM
+    
+*/
+/**
+ * Generar un numero aleatorio entre un ranfo de números
+ * @param {*} minNum
+ * @param {*} maxNum
+ */
+const generarNumeroRandom = (minNum, maxNum) => {
+    const numeroRandom = Math.random();
+    const escalarNumero = numeroRandom * ((maxNum - minNum) + 1);
+    const numeroEntero = Math.floor(escalarNumero + minNum);
+    return numeroEntero;
+};
+
+const elNumeroExisteEnArreglo = (arreglo, numero) => {
+    // for (const elemento of arreglo) {
+    //     if (elemento === numero) return true;
+    // }
+    // return false;
+    return arreglo.includes(numero);
+};
+
+const melateChocolate = (numeros) => {
+    const referencia = document.getElementById("melate-chocolate");
+    referencia.innerHTML = `${numeros.join(' - ')}`;
+};
+
+const generarNumerosDeLaSuerte = (size = 6, minNum = 1, maxNum = 54) => {
+    const numeros = [];
+    let iteracion = 1;
+
+    while (numeros.length < size) {
+        const numRandom = generarNumeroRandom(minNum, maxNum);
+        if (!elNumeroExisteEnArreglo(numeros, numRandom)) {
+            numeros.push(numRandom);
+        }
+        console.log(`Iteración ${iteracion}:`, numeros, `Nuevo número: ${numRandom}`);
+        iteracion++;
+    }
+
+    melateChocolate(numeros);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const boton = document.getElementById("btn-generar");
+    boton.addEventListener("click", () => {
+        generarNumerosDeLaSuerte();
+    });
+});

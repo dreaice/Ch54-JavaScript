@@ -235,11 +235,10 @@ const generarNumeroRandom = (minNum, maxNum) => {
 };
 
 const elNumeroExisteEnArreglo = (arreglo, numero) => {
-    // for (const elemento of arreglo) {
-    //     if (elemento === numero) return true;
-    // }
-    // return false;
-    return arreglo.includes(numero);
+    for (const elemento of arreglo) {
+        if (elemento === numero) return true;
+    }
+    return false;
 };
 
 const melateChocolate = (numeros) => {
@@ -260,6 +259,9 @@ const generarNumerosDeLaSuerte = (size = 6, minNum = 1, maxNum = 54) => {
         iteracion++;
     }
 
+    // Ordenar los números de menor a mayor
+    numeros.sort((a, b) => a - b);
+
     melateChocolate(numeros);
 };
 
@@ -269,3 +271,50 @@ document.addEventListener("DOMContentLoaded", () => {
         generarNumerosDeLaSuerte();
     });
 });
+
+// ------------------- Uso del método sort() ----------------------------
+const numerosIniciales = [5, 33, 8, 100, 4, 2, 7, 6];
+                      // [5, 33, 8, 100, 4, 2, 7, 6] iteracion 0
+                      // [5, 8, 33, 100, 4, 2, 7, 6] iteracion 1
+                      // [5, 33, 8, 100, 4, 2, 7, 6] iteracion 2
+                      // [5, 33, 8, 4, 100, 2, 7, 6] iteracion 3
+                      // [5, 33, 8, 4, 2, 100, 7, 6] iteracion 4
+                      // [5, 33, 8, 4, 2, 7, 100, 6] iteracion 5
+                      // [5, 33, 8, 4, 2, 7, 6, 100] iteracion 6
+                      
+
+const comparaNumeros = (a, b) => {
+    if ( a < b) return -1;
+    if ( a > b) return 1;
+    return 0;
+}
+
+const ordenarNumeros = ( numerosDesordenados, fncCallBack )=>{
+    const numerosOrdenados = numerosDesordenados;
+    numerosOrdenados.sort(fncCallBack);
+    return numerosOrdenados;
+}
+
+console.log(numerosIniciales); // [5, 33, 8, 100, 4, 2, 7, 6]
+console.log(ordenarNumeros(numerosIniciales, comparaNumeros)); // [2, 4, 5, 6, 7, 8, 33, 100]
+console.log(ordenarNumeros([28, 37, 99, 52, 5], comparaNumeros)); // [5, 28, 37, 52, 99]
+
+// Descendente
+const numerosInicialesDes = [12, 33, 24, 100, 4, 1, 69, 6];
+const numerosInicialesDes2 = [12, 33, 12, 24, 68, 100, 3, 4, 21, 1, 71, 69, 19, 6, 28, 33, 15, 12, 18];
+
+const comparaNumerosDes = (a, b) => {
+    if ( a < b) return 1;
+    if ( a > b) return -1;
+    return 0;
+}
+
+const ordenarNumerosDes = ( numerosDesordenadosDes, fncCallBack )=>{
+    const numerosOrdenadosDes = numerosDesordenadosDes;
+    numerosOrdenadosDes.sort(fncCallBack);
+    return numerosOrdenadosDes;
+}
+
+console.log(numerosInicialesDes); // [12, 33, 24, 100, 4, 1, 69, 6]
+console.log(ordenarNumerosDes(numerosInicialesDes, comparaNumerosDes)); // [100, 69, 33, 24, 12, 6, 4, 1]
+console.log(ordenarNumerosDes(numerosInicialesDes2, comparaNumerosDes)); // [100, 69, 33, 24, 12, 6, 4, 1]

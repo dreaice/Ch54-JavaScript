@@ -102,31 +102,45 @@ console.log(  3 == "3" ); //
 
 // Si uno de los operandos es booleano, convierte el operando booleano en 
 // 1 si es verdadero y en 0 en el caso de falso.
-console.log(  1 == true ); // 
-console.log(  0 == false ); // 
+console.log(  1 == true ); // true
+console.log(  0 == false ); // true
 
 //--- Si los operandos tienen el mismo tipo, se comparan de la siguiente manera:-----
 // String: devuelve verdadero solo si ambos operandos tienen los mismos caracteres y en el mismo orden.
-console.log( "hola" == "hola" ); // 
-console.log( "hola" == "Hola" ); // 
-console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); 
+console.log( "hola" == "hola" ); // true
+console.log( "hola" == "Hola" ); // false
+console.log( 'Hola "Ch5x" ' == 'Hola "Ch5x" ' ); // true
+console.log( 'Hola \"Ch5x\" ' == "Hola 'Ch5x' " ); // true
+console.log( 'Hola \"Ch5x\" ' == "Hola 'Ch5x' " ); // false
 
+
+/*
+  Uso del caracter de escape:
+  \n  nueva línea
+  \t  tabulación
+  \\  barra invertida
+  \'  comilla simple
+  \"  comilla doble
+  \`   comilla invertida
+  \b  retroceso
+  \uXXXX  unicode   \u00A9 = ©
+*/
 
 // Se recomienda usar el método localCompare(): compara cadenas de texto de acuerdo con las reglas de un idioma específico
-console.log("apple".localeCompare("banana")); // 
-console.log("grape".localeCompare("grape"));  // 
-console.log("pear".localeCompare("orange"));  // 
-console.log("a".localeCompare("A", "en", { sensitivity: "base" })); // 
+console.log("apple".localeCompare("banana")); // -1
+console.log("grape".localeCompare("grape"));  // 0
+console.log("pear".localeCompare("orange"));  // 1
+console.log("a".localeCompare("A", "en", { sensitivity: "base" })); // 0
 
 
 // Number: devuelve verdadero solo si ambos operandos tienen el mismo valor. 
 // +0 y -0 se tratan como el mismo valor. 
 // Si alguno de los operandos es NaN, devuelve falso.
-console.log(  +0 == -0 ); // 
-console.log(  NaN == NaN ); // 
-console.log(  1 == 1 ); // 
-console.log(  1 == 1.0 ); // 
-console.log(  1 == 1.1 ); // 
+console.log(  +0 == -0 ); // true
+console.log(  NaN == NaN ); // false
+console.log(  1 == 1 ); // true
+console.log(  1 == 1.0 ); // true
+console.log(  1 == 1.1 ); // false
 
 console.log(  isNaN("hola" / 3 )  ); // 
 
@@ -147,18 +161,24 @@ console.log(  isNaN("hola" / 3 )  ); //
 let suma = 0;
 // Agregar 2 al valor de suma
 // suma = suma  + 2;
-suma += 2;
+suma += 2; // 0 + 2 = 2
 
 // --------- ejercicio mental --------------------
 let valorA = 15;
-valorA *= 2; 
+valorA *= 2; // 30
+console.log(valorA);
 
 
 // --------- ejercicio mental --------------------
 let mensaje = "Me voy a de vacaciones";
-mensaje += 2; 
+mensaje += 2; // "Me voy de vacaciones2"
+console.log(mensaje);
 
-
+// --------- ejercicio mental --------------------
+// Qué imprime el console.log? o no imprime?
+for(let i=1; i<=10; i+2){
+  console.log(i); // 1
+}
 
 // -------------- Operadores unarios ------------------
 // Solo actuan sobre un operando

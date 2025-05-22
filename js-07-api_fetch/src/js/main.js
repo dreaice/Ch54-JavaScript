@@ -185,7 +185,13 @@ tercerPaso();
      setTimeout( ()=>{}  , tiempo_ms );
 
 */
+const saludar = (nombre, nombreCh54, cohorte) => alert(`Hola ${nombre} de la ${cohorte}`);
 
+const saludarTranscurridoXSeg = ( milisegundos ) => {
 
+  setTimeout( saludar, milisegundos, "Neo", "Yorch", "Ch54" );
+}
 
-
+// console.log("Antes de Saludar");
+// saludarTranscurridoXSeg ( 5000 );
+// console.log("Después de Saludar");

@@ -142,8 +142,10 @@ if( active ); console.log("Está activo");
 const evaluarNombre = ( nombre ) => {
     let resultado;
     switch ( nombre ){
-        case "Lua": resultado = "Es de Abril"
-        case "T'Challa": case "Smooky": resultado = "Es de Naty"; 
+        case "Lua":
+            resultado = "Es de Abril"
+        case "T'Challa": case "Smooky":
+            resultado = "Es de Naty"; 
             break;
         case "Shuri": resultado = "Es de Yorch";
             break
@@ -297,12 +299,10 @@ function evaluarElNumeroElse(numero){
     }
 }
 
-
-console.log(evaluarElNumeroElse(-45) ); // Negativo
-console.log(evaluarElNumeroElse(0) ); // Cero
-console.log(evaluarElNumeroElse(45) ); // Positivo
-console.log(evaluarElNumeroElse(100) ); // Grande
-
+console.log(evaluarElNumeroElse(-45) );
+console.log(evaluarElNumeroElse(0) );
+console.log(evaluarElNumeroElse(45) );
+console.log(evaluarElNumeroElse(100) );
 
 // ----- Function Switch ----------
 function evaluarElNumeroSwitch(numero) {
@@ -314,9 +314,7 @@ function evaluarElNumeroSwitch(numero) {
         case (numero === 0):
             mensaje = "Cero";
             break;
-
-        case (numero > 0 && numero < 100):
-
+        case (numero >0 && numero < 100):
             mensaje = "Positivo";
             break;
         case (numero >= 100):
@@ -328,12 +326,10 @@ function evaluarElNumeroSwitch(numero) {
     return mensaje;
 };
 
-
-console.log(evaluarElNumeroSwitch(-45) ); // Negativo
-console.log(evaluarElNumeroSwitch(0) ); // Cero
-console.log(evaluarElNumeroSwitch(45) ); // Positivo
-console.log(evaluarElNumeroSwitch(100) ); // Grande
-
+console.log(evaluarElNumeroSwitch(-45) );
+console.log(evaluarElNumeroSwitch(0) );
+console.log(evaluarElNumeroSwitch(45) );
+console.log(evaluarElNumeroSwitch(100) );
 
 // ----- Function Ternario ----------
 const evaluarElNumeroTernario = (numero) => 
@@ -343,12 +339,10 @@ const evaluarElNumeroTernario = (numero) =>
     : "Grande"; 
 
 
-
-console.log(evaluarElNumeroTernario(-45) ); // Negativo
-console.log(evaluarElNumeroTernario(0) ); // Cero
-console.log(evaluarElNumeroTernario(45) ); // Positivo
-console.log(evaluarElNumeroTernario(100) ); // Grande
-
+console.log(evaluarElNumeroTernario(-45) );
+console.log(evaluarElNumeroTernario(0) );
+console.log(evaluarElNumeroTernario(45) );
+console.log(evaluarElNumeroTernario(100) );
 
 // ------------------- Ejercicio Estaciones del año --------------------------
 /*

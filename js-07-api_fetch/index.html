@@ -19,17 +19,29 @@
   <header id="header"></header>
 
   <main class="container text-center mt-5">
-    <section class="row align-items-center justify-content-center" id="main-content">
-      <!-- logo -->
-      <figure class="col-lg-5 col-9">
-        <img class="img-fluid rounded" src="./public/images/dino.jpg" alt="Dinosaurio rex escribiendo código" />
-      </figure>
-      <!-- principal title -->
-      <div class="col-lg-3 col-12 text-warning">
-        <h1>JS 07</h1>
+    <section class="row justify-content-center align-items-start" id="main-content">
+      <!-- Columna izquierda: Imagen + input -->
+      <div class="col-lg-4 col-12 text-center">
+        <figure>
+          <img class="img-fluid rounded" src="./public/images/dino.jpg" alt="Dinosaurio rex escribiendo código" />
+        </figure>
+        <div class="mt-3 text-start px-3">
+          <label for="nombreUsuario" class="form-label">Tu Nombre:</label>
+          <div class="d-flex">
+            <input type="text" id="nombreUsuario" class="form-control me-2" placeholder="Escribe tu nombre" />
+            <button id="guardarNombre" class="btn btn-success">Guardar</button>
+          </div>
+        </div>
       </div>
-      <!-- sesion description -->
-      <div class="col-lg-4 col-12">
+
+      <!-- Columna central: título + saludo -->
+      <div class="col-lg-2 col-12 text-warning text-center mt-4">
+        <h1>JS 07</h1>
+        <p id="saludo" class="text-light mt-2">Hola Persona Invitada</p>
+      </div>
+
+      <!-- Columna derecha: descripción y lista -->
+      <div class="col-lg-6 col-12 mt-4">
         <h2>API FETCH</h2>
         <p class="text-start">
           Las APIs web de JavaScript son los componentes definidos que puede usar al desarrollar la aplicación o el
@@ -49,20 +61,15 @@
           <li>Explicar las API web de JavaScript.</li>
           <li>Explicar la diferencia entre sincrónico y asincrónico.</li>
           <li>Leer y usar la documentación de las API web de JavaScript.</li>
-          <li>Usar la Fetch API para realizar una solicitud GET HTTP. </li>
+          <li>Usar la Fetch API para realizar una solicitud GET HTTP.</li>
           <li>Usar la Fetch API para realizar una solicitud POST HTTP.</li>
           <li>Usar las promesas de usuario JavaScript para hacer solicitudes HTTP usando Fetch.</li>
           <li>Usar la API de almacenamiento web para guardar datos.</li>
           <li>Utilizar las herramientas de desarrollo para verificar los datos de almacenamiento con la API de
             almacenamiento.</li>
           <li>Usar las herramientas de desarrollo para verificar y supervisar la solicitud HTTP.</li>
-
         </ul>
       </div>
-    </section>
-
-    <section id="cards" class="row my-3">
-
     </section>
   </main>
 
@@ -74,7 +81,7 @@
     crossorigin="anonymous"></script>
   <!-- Main custom JS -->
   <script type="module" src="/src/js/main.js"></script>
-  
+
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+// src/js/storage.js
+
 const STORAGE_KEY = "nombreUsuario";
 
 export function guardarNombre(nombre) {

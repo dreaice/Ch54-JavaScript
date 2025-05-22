@@ -77,8 +77,17 @@ Características clave de los módulos JS:
 */
 
 
-// importa las funciones del footer y header e invócalos para que se ejecuten
+// Importa las funciones del footer y header e invócalas para que se ejecuten
+import { insertMainFooter } from "../modules/footer/footer.js";
+import { insertMainHeader } from "../modules/header/header.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+
+  if (header) insertMainHeader(header);
+  if (footer) insertMainFooter(footer);
+});
 
 
 /*
@@ -99,6 +108,30 @@ Características clave de los módulos JS:
     localStorage.clear() → Borra todo el almacenamiento.
 
 */
+
+// src/js/main.js
+import { mostrarSaludo } from "./saludo.js";
+import { guardarNombre, borrarNombre, obtenerNombre } from "./storage.js";
+
+function guardarNombreUsuario() {
+  const inputNombre = document.getElementById("nombreUsuario");
+  const nombre = inputNombre.value.trim();
+  if (nombre) {
+    guardarNombre(nombre);
+    mostrarSaludo(nombre);
+  } else {
+    borrarNombre();
+    mostrarSaludo("");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnGuardar = document.getElementById("guardarNombre");
+  btnGuardar.addEventListener("click", guardarNombreUsuario);
+
+  const nombreGuardado = obtenerNombre();
+  mostrarSaludo(nombreGuardado);
+});
 
 
 

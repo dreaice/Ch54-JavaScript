@@ -17,18 +17,18 @@
  3.- Rejected: La promesa se rechaza con un razón
 */
 
-const irPorElElote = (horaDelDia) => {
-    //const miPromesa = new Promise( fncCallBack );
-    const miPromesa = new Promise((fncCallBackResolve, fncCallBackReject) => {
-        console.log("voy por el elote en la " + horaDelDia); // esta tarea puede demorar mucho o poco
-        if (horaDelDia === "día" || horaDelDia === "tarde") {
-            fncCallBackResolve("Toma tu elote que está dentro de una bolsa");
-        } else {
-            fncCallBackReject({ error: 404, descripcion: "Elote no fue encontrado" });
-        }
-    });
-    return miPromesa;
-};
+// const irPorElElote = (horaDelDia) => {
+//     //const miPromesa = new Promise( fncCallBack );
+//     const miPromesa = new Promise((fncCallBackResolve, fncCallBackReject) => {
+//         console.log("voy por el elote en la " + horaDelDia); // esta tarea puede demorar mucho o poco
+//         if (horaDelDia === "día" || horaDelDia === "tarde") {
+//             fncCallBackResolve("Toma tu elote que está dentro de una bolsa");
+//         } else {
+//             fncCallBackReject({ error: 404, descripcion: "Elote no fue encontrado" });
+//         }
+//     });
+//     return miPromesa;
+// };
 
 /**
  *  Realizar un función de tipo Promise que reciba lo siguiente
@@ -42,41 +42,160 @@ const irPorElElote = (horaDelDia) => {
  */
 
 
-const numDeVueltas = ( number ) =>{
-   const miPromesa = new Promise( ( fncCallBackResolve, fncCallBackReject )=>{
-    console.log("el numero de vueltas es: "+ number);
-       if( number <= 2 ){
-          fncCallBackResolve({mensaje:"ñomi ñomi, me comi mi elote", vueltas: vueltasAleatorias() });
-       } else {
-          fncCallBackReject( {error: 404, descripcion: "upss se me cayo el elote"}  );
-       }       
-   } );
-return miPromesa;
-}
+// const numDeVueltas = ( number ) =>{
+//    const miPromesa = new Promise( ( fncCallBackResolve, fncCallBackReject )=>{
+//     console.log("el numero de vueltas es: "+ number);
+//        if( number <= 2 ){
+//           fncCallBackResolve({mensaje:"ñomi ñomi, me comi mi elote", vueltas: vueltasAleatorias() });
+//        } else {
+//           fncCallBackReject( {error: 404, descripcion: "upss se me cayo el elote"}  );
+//        }       
+//    } );
+// return miPromesa;
+// }
 
 
-//miFuncionPromesa().then( callback )
-// .catch( callback )
-// .finally( callback );
-const vueltasAleatorias = (min=1, max=10)=> Math.floor(Math.random()*( max - min + 1)) + min;
-irPorElElote("tarde")
-    .then((response) => console.log("1eraPromesa", response));
+// //miFuncionPromesa().then( callback )
+// // .catch( callback )
+// // .finally( callback );
+// const vueltasAleatorias = (min=1, max=10)=> Math.floor(Math.random()*( max - min + 1)) + min;
+// irPorElElote("tarde")
+//     .then((response) => console.log("1eraPromesa", response));
 
-irPorElElote("noche")
-    .then((response) => console.log("2daPromesa", response))
-    .catch((error) => console.log(`Promesa rechazada`, error))
-    .finally(() => console.log("Se ha terminado tu promesa"));
+// irPorElElote("noche")
+//     .then((response) => console.log("2daPromesa", response))
+//     .catch((error) => console.log(`Promesa rechazada`, error))
+//     .finally(() => console.log("Se ha terminado tu promesa"));
 
-// Ya tengo mi elote, pero falta abrir la bolsa
 
-const tiempo = "tarde";
+// /*
+// La funcion de llama ponerChilito()
+// La funcion NO tiene parámetro de entrada.
+// Realizar una promesa que retorne en el estado resolve: "Chilito del que pica".
+
+// La funcion no debe tener Reject
+// */
+
+// const ponerChilito = () => {
+//     return new Promise((resolve) => {
+//         resolve("Chilito del que pica");
+//     });
+// };
+
+// // Prueba la función
+// ponerChilito()
+//     .then((respuesta) => console.log(respuesta));
+
+
+//     // Ya tengo mi elote, pero falta abrir la bolsa
+
+// const tiempo = "tarde";
+// irPorElElote(tiempo)
+//     .then((response) => {
+//         console.log("Promesa", tiempo, response);
+//         const vueltas = vueltasAleatorias(); // Genera las vueltas aquí
+//         return numDeVueltas(vueltas); // Llama a la promesa con un número válido
+//     })
+//     .then((response) => console.log(tiempo, response))
+//     .catch((error) => console.log(error))
+//     .finally(() => console.log("Se ha terminado tu promesa"));
+
+// Nueva funcion: 
+
+const vueltasAleatorias = (min = 1, max = 10) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const irPorElElote = (horaDelDia) => {
+    return new Promise((resolve, reject) => {
+        console.log("Voy por el elote en la " + horaDelDia);
+        if (horaDelDia === "día" || horaDelDia === "tarde") {
+            resolve("Toma tu elote que está dentro de una bolsa");
+        } else {
+            reject({ error: 404, descripcion: "Elote no fue encontrado" });
+        }
+    });
+};
+
+const numDeVueltas = (number) => {
+    return new Promise((resolve, reject) => {
+        console.log("El número de vueltas es: " + number);
+        if (number <= 2) {
+            resolve("ñomi ñomi, me comí mi elote");
+        } else {
+            reject({ error: 404, descripcion: "Ups, se me cayó el elote" });
+        }
+    });
+};
+
+const ponerChilito = () => {
+    return new Promise((resolve) => {
+        resolve("Chilito del que pica");
+    });
+};
+
+// Lógica completa
+const tiempo = "tarde"; // cambia a "noche" si quieres ver el rechazo
+
 irPorElElote(tiempo)
-    .then((response) => {
-        console.log("Promesa", tiempo, response);
-        numDeVueltas(response.vueltas)
-            .then(response => console.log(tiempo, response))
-            .catch(error => console.log(error));
+    .then((respuestaElote) => {
+        console.log("✅ Elote listo:", respuestaElote);
+        const vueltas = vueltasAleatorias();
+        return numDeVueltas(vueltas);
     })
+    .then((mensajeElote) => {
+        console.log("✅", mensajeElote);
+        return ponerChilito();
+    })
+    .then((chilito) => {
+        console.log("🌶️", chilito);
+        console.log("🎉 ¡Listo! Tienes tu elote con chilito.");
+    })
+    .catch((error) => {
+        console.log("❌", error.descripcion);
+    })
+    .finally(() => {
+        console.log("🍴 Proceso del elote terminado.");
+    });
 
-    .catch((error) => console.log(`Promesa rechazada`, error))
-    .finally(() => console.log("Se ha terminado tu promesa"));
+/*    const tiempo2 = "tarde"; 
+    irPorElElote( tiempo2 )
+        .then( ( response )=> {
+            console.log("Promesa", tiempo2, response);   
+            return numDeVueltas(response.vueltas);
+        })
+        .then( (response)=>  console.log( "Promesa n.Vueltas", response ))
+        .catch( ( error )=> console.log(`Promesa rechazada`, error) )
+        .finally( ()=> console.log("Se ha terminado tu promesa")  );
+*/
+
+// =================== Uso de Async / Await
+const crisQuiereElote = async () => {
+    const tiempo = "tarde";
+    try {
+        const response = await irPorElElote(tiempo);
+        console.log("✅ Elote listo:", response);
+        
+        const vueltas = vueltasAleatorias();
+        const respuestaBolsa = await numDeVueltas(vueltas);
+        console.log("✅", respuestaBolsa);
+        
+        const mensajeFinal = await ponerChilito();
+        console.log("🌶️", mensajeFinal);
+        
+        console.log("🎉 ¡Cris tiene su elote con chilito!");
+    } catch (error) {
+        console.log("❌", error.descripcion);
+    } finally {
+        console.log("🍴 Proceso del elote terminado.");
+    }
+};
+
+crisQuiereElote();
+
+ // ============== Uso de la api fetch ====================
+ const leerProductos = async ( url )=> {
+    const response = await fetch(url); // Obtener los datos en formato JSON
+    console.log(response);
+    const datosApi =  await response.json(); // Convertir de JSON a objetos de JS
+    console.log( datosApi );
+}
+leerProductos("https://rickandmortyapi.com/api/character");

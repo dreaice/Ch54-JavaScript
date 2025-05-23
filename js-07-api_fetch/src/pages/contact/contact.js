@@ -192,10 +192,59 @@ const crisQuiereElote = async () => {
 crisQuiereElote();
 
  // ============== Uso de la api fetch ====================
- const leerProductos = async ( url )=> {
-    const response = await fetch(url); // Obtener los datos en formato JSON
-    console.log(response);
-    const datosApi =  await response.json(); // Convertir de JSON a objetos de JS
-    console.log( datosApi );
-}
-leerProductos("https://rickandmortyapi.com/api/character");
+ async function myfunction(){}
+
+let currentPage = 1;
+let loading = false; // Para evitar múltiples llamadas
+
+// Obtener personajes de una página específica
+const leerProductos = async (page = 1) => {
+  const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
+  const data = await response.json();
+  console.log = (data);
+  return data.results;
+  
+};
+
+// Construir tarjetas
+const contruirTarjetasDeRickAndMorty = (personajes) => {
+  return personajes.map((personaje) => (
+    `<div class="col-12 col-md-4 col-lg-3 mb-4">
+      <div class="card h-100">
+        <img src="${personaje.image}" class="card-img-top" alt="${personaje.name}">
+        <div class="card-body">
+          <h5 class="card-title">${personaje.name}</h5>
+          <p class="card-text">Some quick example text.</p>
+          <a href="#" class="btn btn-primary">${personaje.species}</a>
+        </div>
+      </div>
+    </div>`
+  ));
+};
+
+// Insertar al DOM (agrega, no reemplaza)
+const insertarTarjetasAlDom = (tarjetas, idDOM = "cards") => {
+  const refDom = document.getElementById(idDOM);
+  refDom.insertAdjacentHTML("beforeend", tarjetas.join(""));
+};
+
+// Cargar nueva página
+const cargarMasPersonajes = async () => {
+  if (loading) return;
+  loading = true;
+  const personajes = await leerProductos(currentPage);
+  const tarjetas = contruirTarjetasDeRickAndMorty(personajes);
+  insertarTarjetasAlDom(tarjetas);
+  currentPage++;
+  loading = false;
+};
+
+// Scroll infinito
+window.addEventListener("scroll", () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+    cargarMasPersonajes();
+  }
+});
+
+// Cargar los primeros personajes
+cargarMasPersonajes();

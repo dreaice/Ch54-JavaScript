@@ -142,6 +142,7 @@ if( active ); console.log("Está activo");
 const evaluarNombre = ( nombre ) => {
     let resultado;
     switch ( nombre ){
+
         case "Lua": resultado = "Es de Abril"
         case "T'Challa": case "Smooky": resultado = "Es de Naty"; 
             break;

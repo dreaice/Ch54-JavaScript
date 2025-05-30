@@ -9,9 +9,9 @@ function App() {
   const myJSX = (
   < >
     <Navbar />
-    <Home />
-  
-    <Footer />
+    <Home name="Lord Yorchmort" hogwartsHome="Hufflepuff"/>
+    <Home name="Miss Naty" hogwartsHome="Slytherin"/>
+    <Footer cohorte={54}/>
   </ >
 );
 
